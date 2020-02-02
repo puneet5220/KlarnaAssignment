@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+apply from: '../build-versions.gradle'
+
+android {
+    compileSdkVersion androidTargetSdkVersion
+    buildToolsVersion androidBuildToolsVersion
+    defaultConfig {
+        applicationId "com.test.klarna"
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode androidVersionCode
+        versionName androidVersionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "androidx.appcompat:appcompat:${appCompactVersion}"
+    implementation "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}"
+    implementation "androidx.recyclerview:recyclerview:${recyclerViewVersion}"
+
+    testImplementation "junit:junit:${jUnitVersion}"
+    testImplementation "android.arch.core:core-testing:${coreTestingVersion}"
+    testImplementation "org.mockito:mockito-core:${mockitoLibraryVersion}"
+    testImplementation "org.assertj:assertj-core:${assertJLibraryVersion}"
+    testImplementation "pl.pragmatists:JUnitParams:${junitParamsLibraryVersion}"
+
+    implementation "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}"
+
+    implementation "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
+    implementation "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}"
+
+    implementation "com.google.dagger:dagger:${daggerVersion}"
+    implementation "com.google.dagger:dagger-android:${daggerAndroidVersion}"
+    implementation "com.google.dagger:dagger-android-support:${daggerAndroidVersion}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${daggerVersion}"
+    annotationProcessor "com.google.dagger:dagger-android-processor:${daggerAndroidVersion}"
+
+    implementation "com.jakewharton:butterknife:${butterKnifeVersion}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${butterKnifeVersion}"
+
+    implementation "com.fasterxml.jackson.core:jackson-core:$jacksonLibraryVersion"
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonLibraryVersion"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:$jacksonLibraryVersion"
+
+    implementation "androidx.multidex:multidex:${multiDexVersion}"
+    implementation "androidx.lifecycle:lifecycle-extensions:$androidLifeCycleVersion"
+
+    implementation("com.squareup.retrofit2:retrofit:${retrofitVersion}") {
+        exclude module: 'okhttp'
+        transitive = true
+    }
+
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-jackson:${retrofitVersion}"
+
+    implementation "androidx.cardview:cardview:$cardViewVersion"
+
+    api "com.squareup.okhttp3:okhttp:${okhttpVersion}"
+    api "com.squareup.okhttp3:logging-interceptor:${okhttpLoggingVersion}"
+}

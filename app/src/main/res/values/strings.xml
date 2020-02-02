@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">KlarnaApplication</string>
+    <string name="timezone">TimeZone : %s</string>
+    <string name="currentSummary">Current Summary : %s</string>
+    <string name="hourlySummary">Hourly Summary : %s</string>
+    <string name="dailySummary">Daily Summary : %s</string>
+
+    <string name="offline">Please connect to the Internet!!</string>
+</resources>
