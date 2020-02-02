@@ -11,7 +11,7 @@
 
 ### Setup
 
-No Git repository setUp.
+Clone from - https://github.com/puneet5220/KlarnaAssignment.git
 
 ### APP details
 
